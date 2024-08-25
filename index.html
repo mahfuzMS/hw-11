@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+
+    <style>
+        * {
+            font-family: sans-serif 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .accordion-cover {
+            width: 60%;
+            padding: 10px 30px;
+            margin: 0 auto;
+        }
+
+        .accordion {
+            width: 100%;
+            border: none;
+            padding: 10px;
+            font-size: 22px;
+            margin:  2px 0;
+            transition: .4s;
+            background-color: rgb(170, 166, 166);
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: rgb(158, 154, 154);
+        }
+
+        .panel {
+            padding: 5px 25px;
+            background-color: rgb(208, 219, 219);
+            display: none;
+            overflow: hidden;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Accordion List</h1>
+
+    <div class="accordion-cover">
+        <button class="accordion">This is title one</button>
+        <div class="panel">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fugiat vero aspernatur, explicabo maiores
+                perferendis dolor provident fuga? Ullam, sed reprehenderit nam officia obcaecati dicta adipisci ipsam.
+                Harum
+                voluptate neque libero laborum possimus vitae est accusamus laboriosam beatae hic. Debitis.
+            </p>
+        </div>
+        <button class="accordion">This is title two</button>
+        <div class="panel">
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe quisquam culpa incidunt dolorum modi
+                iusto
+                atque magni. Vero sit id corporis ab repellendus soluta quo corrupti minus quod mollitia error autem
+                provident, totam reiciendis repellat eius quaerat non reprehenderit expedita.
+            </p>
+        </div>
+        <button class="accordion">This is title three</button>
+        <div class="panel">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil molestias nisi veniam iste quae voluptate
+                ad
+                sed, doloremque debitis animi totam suscipit. Unde accusamus asperiores assumenda veniam aliquam ipsam
+                autem
+                at facilis cupiditate? Dolores, velit officiis dolore provident aperiam maxime!
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        var accor = document.getElementsByClassName("accordion");
+
+        for (var i = 0; i < accor.length; i++) {
+            accor[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+
+                for (var j = 0; j < accor.length; j++) {
+                    accor[j].classList.remove("active");
+                    var allPanels = accor[j].nextElementSibling;
+                    allPanels.style.display = "none";
+                }
+
+                var pan = this.nextElementSibling;
+                if (pan.style.display == "block") {
+                    pan.style.display = "none";
+                }
+                else {
+                    pan.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
